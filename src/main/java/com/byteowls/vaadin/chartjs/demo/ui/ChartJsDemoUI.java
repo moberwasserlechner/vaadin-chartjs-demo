@@ -1,78 +1,39 @@
 package com.byteowls.vaadin.chartjs.demo.ui;
 
+import com.byteowls.vaadin.chartjs.demo.ui.charts.*;
+import com.vaadin.annotations.Theme;
+import com.vaadin.data.TreeData;
+import com.vaadin.data.provider.TreeDataProvider;
+import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.server.ExternalResource;
+import com.vaadin.server.Page;
+import com.vaadin.server.Responsive;
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.shared.ui.ContentMode;
+import com.vaadin.spring.annotation.SpringUI;
+import com.vaadin.spring.navigator.SpringViewProvider;
+import com.vaadin.ui.*;
+import com.vaadin.ui.themes.ValoTheme;
+import de.java2html.converter.JavaSource2HTMLConverter;
+import de.java2html.javasource.JavaSource;
+import de.java2html.javasource.JavaSourceParser;
+import de.java2html.options.JavaSourceConversionOptions;
+import de.java2html.util.IllegalConfigurationException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-
-import com.byteowls.vaadin.chartjs.demo.ui.charts.AngledPieChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.BarLineComboChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.CubicInterpolationLineChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.ElementLineFillModeChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.GaugeDonutChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.GroupedStackedBarChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.HorizontalBarChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.LinePointSytesChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.MultiAxisBarChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.MultiDonutChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.PieChartRefreshDataView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.PointSizeLineChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.PolarChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.ScatterLineChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.SimpleBubbleChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.SimpleLineChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.SimpleRadarChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.SinglePieChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.SkipDataRadarChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.SkipPointsLineChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.StackedBarChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.StackedLineChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.SteppedLineChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.TooltipInteractionModesChartView;
-import com.byteowls.vaadin.chartjs.demo.ui.charts.TooltipPositionModesChartView;
-import com.vaadin.annotations.Theme;
-import com.vaadin.data.Item;
-import com.vaadin.data.util.HierarchicalContainer;
-import com.vaadin.navigator.Navigator;
-import com.vaadin.navigator.ViewChangeListener;
-import com.vaadin.server.ExternalResource;
-import com.vaadin.server.Page;
-import com.vaadin.server.Resource;
-import com.vaadin.server.Responsive;
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.shared.ui.label.ContentMode;
-import com.vaadin.spring.annotation.SpringUI;
-import com.vaadin.spring.navigator.SpringViewProvider;
-import com.vaadin.ui.Alignment;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.CssLayout;
-import com.vaadin.ui.HorizontalSplitPanel;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Link;
-import com.vaadin.ui.Panel;
-import com.vaadin.ui.Tree;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.themes.ValoTheme;
-
-import de.java2html.converter.JavaSource2HTMLConverter;
-import de.java2html.javasource.JavaSource;
-import de.java2html.javasource.JavaSourceParser;
-import de.java2html.options.JavaSourceConversionOptions;
-import de.java2html.util.IllegalConfigurationException;
-
 @Theme("chartjs")
 @SpringUI
 public class ChartJsDemoUI extends UI {
 
     private static final long serialVersionUID = -33887281222947647L;
-
-    private static final String CAPTION_PROPERTY = "caption";
-    private static final String ICON_PROPERTY = "icon";
 
     private static List<MenuItem> menuItems;
     static {
@@ -129,6 +90,7 @@ public class ChartJsDemoUI extends UI {
         navigator.setErrorProvider(viewProvider);
 
         VerticalLayout vl = new VerticalLayout();
+        vl.setMargin(false);
         vl.setSizeFull();
 
         Label info = new Label("<strong>" + title + "</strong> "
@@ -203,6 +165,7 @@ public class ChartJsDemoUI extends UI {
         codePanel.addStyleName("addon-code");
 
         VerticalLayout codeVl = new VerticalLayout(codePanel, codeLink);
+        codeVl.setMargin(false);
         codeVl.setSizeFull();
         codeVl.setExpandRatio(codePanel, 1);
         codeVl.setComponentAlignment(codeLink, Alignment.MIDDLE_CENTER);
@@ -216,16 +179,12 @@ public class ChartJsDemoUI extends UI {
         treePanel.addStyleName(ValoTheme.PANEL_BORDERLESS);
         treePanel.addStyleName("addon-menu");
 
-        Tree tree = new Tree();
-        tree.setSelectable(true);
+        Tree<MenuItem> tree = new Tree();
+        TreeData<MenuItem> treeData = new TreeData<>();
 
-        HierarchicalContainer treeContainer = new HierarchicalContainer();
-        treeContainer.addContainerProperty(CAPTION_PROPERTY, String.class, null); // label
-        treeContainer.addContainerProperty(ICON_PROPERTY, Resource.class, null); // icon
+        TreeDataProvider<MenuItem> provider = new TreeDataProvider<>(treeData);
+        tree.setDataProvider(provider);
 
-        tree.setContainerDataSource(treeContainer);
-        tree.setItemCaptionPropertyId(CAPTION_PROPERTY);
-        tree.setItemIconPropertyId(ICON_PROPERTY);
 
         for (ChartType chartType : ChartType.values()) {
             List<MenuItem> children = new ArrayList<>();
@@ -235,34 +194,27 @@ public class ChartJsDemoUI extends UI {
                 }
             }
 
-            Item item = treeContainer.addItem(chartType);
-            item.getItemProperty(CAPTION_PROPERTY).setValue(chartType.toString() + " Charts");
-            item.getItemProperty(ICON_PROPERTY).setValue(chartType.getIcon());
-            treeContainer.setChildrenAllowed(chartType, !children.isEmpty());
+            MenuItem parentItem = new MenuItem(chartType, chartType.name(), null);
+            treeData.addItem(null, parentItem);
 
             for (MenuItem i : children) {
-                Item childItem = treeContainer.addItem(i);
-                childItem.getItemProperty(CAPTION_PROPERTY).setValue(i.getLabel());
-                //childItem.getItemProperty(ICON_PROPERTY).setValue(null);
-                treeContainer.setParent(i, chartType);
-                treeContainer.setChildrenAllowed(i, false);
+                treeData.addItem(parentItem, i);
+                tree.expand(parentItem);
             }
-        }
-
-        // Expand whole tree
-        for (final Object id : tree.rootItemIds()) {
-            tree.expandItem(id);
         }
 
         tree.addItemClickListener(e -> {
-            Object itemId = e.getItemId();
-            if (itemId instanceof MenuItem) {
-                MenuItem menuItem = (MenuItem) itemId;
-                if (menuItem.getViewName() != null) {
-                    getUI().getNavigator().navigateTo(menuItem.getViewName());
+            MenuItem i = e.getItem();
+                if (i.getViewName() != null) {
+                    getUI().getNavigator().navigateTo(i.getViewName());
                 }
-
+        });
+        tree.setItemCaptionGenerator(MenuItem::getLabel);
+        tree.setItemIconGenerator(item -> {
+            if (item.getViewName() == null) {
+                return item.getType().getIcon();
             }
+            return null;
         });
         treePanel.setContent(tree);
         return treePanel;
@@ -279,7 +231,7 @@ public class ChartJsDemoUI extends UI {
                 options.setAddLineAnchors(false);
                 converter.convert(source, options, writer);
                 return writer.toString();
-            } catch (IllegalConfigurationException | IOException exception) {
+            } catch (IllegalConfigurationException | IOException ignore) {
 
             }
         }

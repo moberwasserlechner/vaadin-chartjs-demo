@@ -14,9 +14,11 @@ public class MenuItem {
         super();
         this.type = type;
         this.label = label;
-        Class<?> realBeanClass = ClassUtils.getUserClass(clazz);
-        String viewName = realBeanClass.getSimpleName().replaceFirst("View$", "");
-        this.viewName = Conventions.upperCamelToLowerHyphen(viewName);
+        if (clazz != null) {
+            Class<?> realBeanClass = ClassUtils.getUserClass(clazz);
+            String viewName = realBeanClass.getSimpleName().replaceFirst("View$", "");
+            this.viewName = Conventions.upperCamelToLowerHyphen(viewName);
+        }
     }
 
     public String getLabel() {

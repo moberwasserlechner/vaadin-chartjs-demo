@@ -1,19 +1,19 @@
 package com.byteowls.vaadin.chartjs.demo.ui;
 
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.FontIcon;
 
 public enum ChartType {
     
-    BAR(FontAwesome.BAR_CHART_O), 
-    LINE(FontAwesome.LINE_CHART), 
-    PIE(FontAwesome.PIE_CHART), 
-    AREA(FontAwesome.AREA_CHART);
+    BAR(VaadinIcons.BAR_CHART),
+    LINE(VaadinIcons.CHART_LINE),
+    PIE(VaadinIcons.PIE_CHART),
+    AREA(VaadinIcons.CHART_GRID);
     
     
     FontIcon icon;
     
-    private ChartType(FontIcon icon) {
+    ChartType(FontIcon icon) {
         this.icon = icon;
     }
 

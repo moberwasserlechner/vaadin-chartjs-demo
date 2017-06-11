@@ -14,12 +14,6 @@ apply plugin: 'eclipse-wtp'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'war'
 
-eclipse {
-  project {
-    name = 'vaadin-chartjs-demo'
-  }
-}
-
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -28,6 +22,7 @@ repositories {
     jcenter()
     mavenCentral()
     maven { url = "http://maven.vaadin.com/vaadin-addons"}
+    maven { url = "https://maven.vaadin.com/vaadin-prereleases" }
 }
 configurations.compile.exclude module: "spring-boot-starter-tomcat"
 
