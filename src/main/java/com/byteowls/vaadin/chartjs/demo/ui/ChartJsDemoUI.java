@@ -35,36 +35,36 @@ public class ChartJsDemoUI extends UI {
 
     private static final long serialVersionUID = -33887281222947647L;
 
-    private static List<MenuItem> menuItems;
+    protected static List<MenuItem> MENU_ITEMS;
     static {
-        menuItems = new ArrayList<>();
-        menuItems.add(new MenuItem(ChartType.BAR, "Vertical", MultiAxisBarChartView.class));
-        menuItems.add(new MenuItem(ChartType.BAR, "Horizontal", HorizontalBarChartView.class));
-        menuItems.add(new MenuItem(ChartType.BAR, "Combo", BarLineComboChartView.class));
-        menuItems.add(new MenuItem(ChartType.BAR, "Stacked", StackedBarChartView.class));
-        menuItems.add(new MenuItem(ChartType.BAR, "Grouped Stacks", GroupedStackedBarChartView.class));
-        menuItems.add(new MenuItem(ChartType.LINE, "Simple", SimpleLineChartView.class));
-        menuItems.add(new MenuItem(ChartType.LINE, "Stacked", StackedLineChartView.class));
-        menuItems.add(new MenuItem(ChartType.LINE, "Combo", BarLineComboChartView.class));
-        menuItems.add(new MenuItem(ChartType.LINE, "PointSize", PointSizeLineChartView.class));
-        menuItems.add(new MenuItem(ChartType.LINE, "Point Styles", LinePointSytesChartView.class));
-        menuItems.add(new MenuItem(ChartType.LINE, "Scatter", ScatterLineChartView.class));
-        menuItems.add(new MenuItem(ChartType.LINE, "SkipPoints", SkipPointsLineChartView.class));
-        menuItems.add(new MenuItem(ChartType.LINE, "Stepped", SteppedLineChartView.class));
-        menuItems.add(new MenuItem(ChartType.LINE, "CubicInterpolation", CubicInterpolationLineChartView.class));
-        menuItems.add(new MenuItem(ChartType.LINE, "Tooltip Interactions", TooltipInteractionModesChartView.class));
-        menuItems.add(new MenuItem(ChartType.LINE, "Tooltip Positions", TooltipPositionModesChartView.class));
-        menuItems.add(new MenuItem(ChartType.LINE, "Elements.Line FillMode", ElementLineFillModeChartView.class));
-        menuItems.add(new MenuItem(ChartType.PIE, "Pie", SinglePieChartView.class));
-        menuItems.add(new MenuItem(ChartType.PIE, "Donut", MultiDonutChartView.class));
-        menuItems.add(new MenuItem(ChartType.PIE, "Angled pie", AngledPieChartView.class));
-        menuItems.add(new MenuItem(ChartType.PIE, "Gauge donut", GaugeDonutChartView.class));
-        menuItems.add(new MenuItem(ChartType.PIE, "Pie with data refresh", PieChartRefreshDataView.class));
-        //        menuItems.add(new MenuItem(ChartType.PIE, "Download pie", PieChartDownloadView.class));
-        menuItems.add(new MenuItem(ChartType.AREA, "Bubble", SimpleBubbleChartView.class));
-        menuItems.add(new MenuItem(ChartType.AREA, "Polar", PolarChartView.class));
-        menuItems.add(new MenuItem(ChartType.AREA, "Radar", SimpleRadarChartView.class));
-        menuItems.add(new MenuItem(ChartType.AREA, "Radar skipped point", SkipDataRadarChartView.class));
+        MENU_ITEMS = new ArrayList<>();
+        MENU_ITEMS.add(new MenuItem(ChartType.BAR, "Vertical", MultiAxisBarChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.BAR, "Horizontal", HorizontalBarChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.BAR, "Combo", BarLineComboChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.BAR, "Stacked", StackedBarChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.BAR, "Grouped Stacks", GroupedStackedBarChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Simple", SimpleLineChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Stacked", StackedLineChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Combo", BarLineComboChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "PointSize", PointSizeLineChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Point Styles", LinePointSytesChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Scatter", ScatterLineChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "SkipPoints", SkipPointsLineChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Stepped", SteppedLineChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "CubicInterpolation", CubicInterpolationLineChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Tooltip Interactions", TooltipInteractionModesChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Tooltip Positions", TooltipPositionModesChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Elements.Line FillMode", ElementLineFillModeChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.PIE, "Pie", SinglePieChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.PIE, "Donut", MultiDonutChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.PIE, "Angled pie", AngledPieChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.PIE, "Gauge donut", GaugeDonutChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.PIE, "Pie with data refresh", PieChartRefreshDataView.class));
+        //        MENU_ITEMS.add(new MenuItem(ChartType.PIE, "Download pie", PieChartDownloadView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.AREA, "Bubble", SimpleBubbleChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.AREA, "Polar", PolarChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.AREA, "Radar", SimpleRadarChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.AREA, "Radar skipped point", SkipDataRadarChartView.class));
     }
 
     @Autowired
@@ -140,7 +140,7 @@ public class ChartJsDemoUI extends UI {
 
         String fragment = Page.getCurrent().getUriFragment();
         if (fragment == null || fragment.equals("")) {
-            String viewName = menuItems.get(0).getViewName();
+            String viewName = MENU_ITEMS.get(0).getViewName();
             navigator.navigateTo(viewName);
         }
     }
@@ -188,7 +188,7 @@ public class ChartJsDemoUI extends UI {
 
         for (ChartType chartType : ChartType.values()) {
             List<MenuItem> children = new ArrayList<>();
-            for (MenuItem i : menuItems) {
+            for (MenuItem i : MENU_ITEMS) {
                 if (i.getType() == chartType) {
                     children.add(i);
                 }

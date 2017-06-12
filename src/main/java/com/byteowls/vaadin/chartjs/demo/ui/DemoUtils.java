@@ -5,9 +5,7 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
 
 /**
- * This utils provide a few short cuts.
- * @author moberwasserlechner
- *
+ * This util class provides a few shortcuts.
  */
 public abstract class DemoUtils {
 
@@ -18,10 +16,10 @@ public abstract class DemoUtils {
     public static final String RGB_BLUE = "rgb(54, 162, 235)";
     public static final String RGB_PURPLE = "rgb(153, 102, 255)";
     public static final String RGB_GREY = "rgb(231,233,237)";
-    public static final String GITHUB_REPO_URL = "https://github.com/moberwasserlechner/vaadin-chartjs/tree/master/demo/src/main/java/";
+    public static final String GITHUB_REPO_URL = "https://github.com/moberwasserlechner/vaadin-chartjs-demo/tree/master/src/main/java/";
 
     public static double randomScalingFactor() {
-        return (double) (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+        return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
     }
 
     public static void notification(int dataSetIdx, int dataIdx, Dataset<?, ?> dataset) {
@@ -29,8 +27,7 @@ public abstract class DemoUtils {
     }
 
     public static String getPathToClass(Class<?> clazz) {
-        String path = clazz.getCanonicalName().replaceAll("\\.", "/") + ".java";
-        return path;
+        return clazz.getCanonicalName().replaceAll("\\.", "/") + ".java";
     }
 
     public static String getGithubPath(Class<?> clazz) {
