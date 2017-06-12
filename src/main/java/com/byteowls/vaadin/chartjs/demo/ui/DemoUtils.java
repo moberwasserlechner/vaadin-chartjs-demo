@@ -16,6 +16,7 @@ public abstract class DemoUtils {
     public static final String RGB_BLUE = "rgb(54, 162, 235)";
     public static final String RGB_PURPLE = "rgb(153, 102, 255)";
     public static final String RGB_GREY = "rgb(231,233,237)";
+    public static final String RGB_BLACK = "rgb(0,0,0)";
     public static final String GITHUB_REPO_URL = "https://github.com/moberwasserlechner/vaadin-chartjs-demo/tree/master/src/main/java/";
 
     public static double randomScalingFactor() {

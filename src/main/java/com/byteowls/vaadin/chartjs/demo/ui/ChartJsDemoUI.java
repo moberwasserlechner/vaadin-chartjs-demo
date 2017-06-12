@@ -54,6 +54,7 @@ public class ChartJsDemoUI extends UI {
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "CubicInterpolation", CubicInterpolationLineChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Tooltip Interactions", TooltipInteractionModesChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Tooltip Positions", TooltipPositionModesChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Tooltip Border&Width", TooltipBorderChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Elements.Line FillMode", ElementLineFillModeChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.PIE, "Pie", SinglePieChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.PIE, "Donut", MultiDonutChartView.class));
