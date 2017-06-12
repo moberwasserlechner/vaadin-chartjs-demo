@@ -2,15 +2,11 @@
 
 This is the demo project for [vaadin-chartjs](https://github.com/moberwasserlechner/vaadin-chartjs) library.
 
-# Usage
+# Live Demo
 
-Follow me on [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Twitter&style=flat-square)](https://twitter.com/michaelowl_web) to be notified about new releases.
+* http://vaadin-demos.qqjtxeeuih.eu-central-1.elasticbeanstalk.com:5600
 
-## Missing something?
-
-The Vaadin-Chartjs is only a wrapper. So if you have any feature requests or found any bugs in the javascript lib please use Chart.js's issue tracker https://github.com/chartjs/Chart.js/issues
-
-In all other cases please create a issue at https://github.com/moberwasserlechner/vaadin-chartjs/issues or contribute to the project yourself. For contribution see the next section.
+Please follow me on [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Twitter&style=flat-square)](https://twitter.com/michaelowl_web) to be notified about new releases.
 
 ## Contribute
 
