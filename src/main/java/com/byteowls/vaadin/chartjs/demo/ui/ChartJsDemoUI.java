@@ -65,6 +65,7 @@ public class ChartJsDemoUI extends UI {
         MENU_ITEMS.add(new MenuItem(ChartType.AREA, "Bubble", SimpleBubbleChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.AREA, "Polar", PolarChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.AREA, "Radar", SimpleRadarChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.AREA, "Radar fill options", RadarFillChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.AREA, "Radar circular grid lines", CircularAngleLineRadarChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.AREA, "Radar skipped point", SkipDataRadarChartView.class));
     }
