@@ -1,11 +1,13 @@
 package com.byteowls.vaadin.chartjs.demo.ui;
 
 import com.byteowls.vaadin.chartjs.data.Dataset;
+import com.byteowls.vaadin.chartjs.demo.ui.utils.SampleDataConfig;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * This util class provides a few shortcuts.
@@ -43,6 +45,17 @@ public abstract class DemoUtils {
         COLORS.add(RGB_ARR_GREY);
     }
 
+    public static int[] getRgbColor(int idx) {
+        if (idx < 0) {
+            idx = (idx % COLORS.size()) + (COLORS.size());
+        } else if (idx == COLORS.size()) {
+            idx = 0;
+        } else if (idx > COLORS.size()) {
+            idx = (idx % COLORS.size()) + -1;
+        }
+        return COLORS.get(idx);
+    }
+
     public static double randomScalingFactor() {
         return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
     }
@@ -58,4 +71,39 @@ public abstract class DemoUtils {
     public static String getGithubPath(Class<?> clazz) {
         return GITHUB_REPO_URL + getPathToClass(clazz);
     }
+
+
+    public static double rand() {
+        return rand(0, 1);
+    }
+
+    public static double rand(double min, double max) {
+        return min + (Math.random()) * (max - min);
+    }
+
+
+    /**
+     * based on http://www.chartjs.org/samples/latest/utils.js
+     */
+    public static List<Double> generateSampleData(SampleDataConfig config) {
+        double dfactor = Math.pow(10, config.getDecimals());
+        List<Double> data = new ArrayList<>();
+        for (int i = 0; i < config.getCount(); i++) {
+            double value = 0;
+            if (config.getFrom() != null && i < config.getFrom().size()) {
+                Double baseValue = config.getFrom().get(i);
+                if (baseValue != null) {
+                    value = baseValue;
+                }
+            }
+            value += rand(config.getMin(), config.getMax());
+            if (rand() <= config.getContinuity()) {
+                data.add(Math.round(dfactor * value) / dfactor);
+            } else {
+                data.add(null);
+            }
+        }
+        return data;
+    }
+
 }
