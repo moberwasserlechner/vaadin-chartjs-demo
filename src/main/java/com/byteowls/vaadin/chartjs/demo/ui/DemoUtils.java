@@ -7,7 +7,6 @@ import com.vaadin.ui.Notification.Type;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * This util class provides a few shortcuts.

@@ -1,8 +1,5 @@
 package com.byteowls.vaadin.chartjs.demo.ui.charts;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.byteowls.vaadin.chartjs.ChartJs;
 import com.byteowls.vaadin.chartjs.config.ChartConfig;
 import com.byteowls.vaadin.chartjs.config.PieChartConfig;
@@ -11,13 +8,16 @@ import com.byteowls.vaadin.chartjs.data.PieDataset;
 import com.byteowls.vaadin.chartjs.demo.ui.AbstractChartView;
 import com.byteowls.vaadin.chartjs.demo.ui.DemoUtils;
 import com.byteowls.vaadin.chartjs.utils.ColorUtils;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.VerticalLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @UIScope
 @SpringView
@@ -33,9 +33,10 @@ public class PieChartRefreshDataView extends AbstractChartView {
                 .labels("Red", "Green", "Yellow", "Grey", "Dark Grey")
                 .addDataset(new PieDataset().label("Dataset 1"))
                 .and();
-        
+
         config.
             options()
+//                .maintainAspectRatio(true)
                 .responsive(true)
                 .title()
                     .display(true)
@@ -46,7 +47,7 @@ public class PieChartRefreshDataView extends AbstractChartView {
                     .animateRotate(true)
                     .and()
                .done();
-        
+
         ChartJs chart = new ChartJs(config);
         chart.setJsLoggingEnabled(true);
         chart.addClickListener((a,b) -> {
@@ -54,11 +55,11 @@ public class PieChartRefreshDataView extends AbstractChartView {
             DemoUtils.notification(a, b, dataset);
         });
         refreshChartData(chart);
-        chart.setWidth(100, Unit.PERCENTAGE);
-        
-        Button refreshButton = new Button("Refresh Data", FontAwesome.REFRESH);
+        chart.setSizeFull();
+
+        Button refreshButton = new Button("Refresh Data", VaadinIcons.REFRESH);
         refreshButton.addClickListener(e -> refreshChartData(chart));
-        
+
         VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
         layout.addComponent(refreshButton);
@@ -66,14 +67,14 @@ public class PieChartRefreshDataView extends AbstractChartView {
         layout.setComponentAlignment(refreshButton, Alignment.TOP_CENTER);
         layout.setComponentAlignment(chart, Alignment.MIDDLE_CENTER);
         layout.setExpandRatio(chart, 1);
-        return layout; 
+        return layout;
     }
-    
+
     protected void refreshChartData(ChartJs chart) {
     	generateRandomData(chart.getConfig());
     	chart.refreshData();
     }
-    
+
     private void generateRandomData(ChartConfig chartConfig) {
     	PieChartConfig config = (PieChartConfig) chartConfig;
         List<String> labels = config.data().getLabels();
