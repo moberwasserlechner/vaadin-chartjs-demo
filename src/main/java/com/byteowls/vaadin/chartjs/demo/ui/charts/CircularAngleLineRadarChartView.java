@@ -8,6 +8,7 @@ import com.byteowls.vaadin.chartjs.demo.ui.AbstractChartView;
 import com.byteowls.vaadin.chartjs.demo.ui.DemoUtils;
 import com.byteowls.vaadin.chartjs.options.Position;
 import com.byteowls.vaadin.chartjs.options.scale.RadialLinearScale;
+import com.byteowls.vaadin.chartjs.utils.ColorUtils;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.Component;
@@ -28,13 +29,13 @@ public class CircularAngleLineRadarChartView extends AbstractChartView {
             .data()
                 .labels("Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running")
                 .addDataset(new RadarDataset().label("My First dataset")
-                    .backgroundColor(DemoUtils.RGBA_RED)
-                    .borderColor(DemoUtils.RGB_RED)
-                    .pointBackgroundColor(DemoUtils.RGB_RED))
+                    .backgroundColor(ColorUtils.toRgba(DemoUtils.RGB_ARR_RED, 0.2))
+                    .borderColor(ColorUtils.toRgb(DemoUtils.RGB_ARR_RED))
+                    .pointBackgroundColor(ColorUtils.toRgb(DemoUtils.RGB_ARR_RED)))
                 .addDataset(new RadarDataset().label("My Second  dataset")
-                    .backgroundColor(DemoUtils.RGBA_BLUE)
-                    .borderColor(DemoUtils.RGB_BLUE)
-                    .pointBackgroundColor(DemoUtils.RGB_BLUE))
+                    .backgroundColor(ColorUtils.toRgba(DemoUtils.RGB_ARR_BLUE, 0.2))
+                    .borderColor(ColorUtils.toRgb(DemoUtils.RGB_ARR_BLUE))
+                    .pointBackgroundColor(ColorUtils.toRgb(DemoUtils.RGB_ARR_BLUE)))
                 .and();
 
         config.
