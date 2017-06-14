@@ -7,7 +7,7 @@ import com.byteowls.vaadin.chartjs.data.RadarDataset;
 import com.byteowls.vaadin.chartjs.demo.ui.AbstractChartView;
 import com.byteowls.vaadin.chartjs.demo.ui.DemoUtils;
 import com.byteowls.vaadin.chartjs.demo.ui.utils.SampleDataConfig;
-import com.byteowls.vaadin.chartjs.options.elements.Line;
+import com.byteowls.vaadin.chartjs.options.FillMode;
 import com.byteowls.vaadin.chartjs.options.scale.Axis;
 import com.byteowls.vaadin.chartjs.options.scale.LinearScale;
 import com.byteowls.vaadin.chartjs.utils.ColorUtils;
@@ -37,7 +37,7 @@ public class LineFillChartView extends AbstractChartView {
                 .addDataset(new LineDataset().fill(true, 2))
                 .addDataset(new LineDataset().fill(false))
                 .addDataset(new LineDataset().fill(8))
-                .addDataset(new LineDataset().hidden(true).fill(Line.FillMode.END))
+                .addDataset(new LineDataset().hidden(true).fill(FillMode.END))
                 .and();
 
         config.

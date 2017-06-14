@@ -6,7 +6,7 @@ import com.byteowls.vaadin.chartjs.data.RadarDataset;
 import com.byteowls.vaadin.chartjs.demo.ui.AbstractChartView;
 import com.byteowls.vaadin.chartjs.demo.ui.DemoUtils;
 import com.byteowls.vaadin.chartjs.demo.ui.utils.SampleDataConfig;
-import com.byteowls.vaadin.chartjs.options.elements.Line;
+import com.byteowls.vaadin.chartjs.options.FillMode;
 import com.byteowls.vaadin.chartjs.utils.ColorUtils;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.spring.annotation.UIScope;
@@ -30,7 +30,7 @@ public class RadarFillChartView extends AbstractChartView {
                 .addDataset(new RadarDataset().fill(true, 2))
                 .addDataset(new RadarDataset().fill(false))
                 .addDataset(new RadarDataset().fill(false))
-                .addDataset(new RadarDataset().fill(Line.FillMode.START))
+                .addDataset(new RadarDataset().fill(FillMode.START))
                 .addDataset(new RadarDataset().hidden(true).fill(1))
                 .and();
 

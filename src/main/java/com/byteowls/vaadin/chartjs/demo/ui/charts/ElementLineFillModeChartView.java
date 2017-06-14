@@ -5,7 +5,7 @@ import com.byteowls.vaadin.chartjs.config.LineChartConfig;
 import com.byteowls.vaadin.chartjs.data.LineDataset;
 import com.byteowls.vaadin.chartjs.demo.ui.AbstractChartView;
 import com.byteowls.vaadin.chartjs.demo.ui.DemoUtils;
-import com.byteowls.vaadin.chartjs.options.elements.Line.FillMode;
+import com.byteowls.vaadin.chartjs.options.FillMode;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.Component;
