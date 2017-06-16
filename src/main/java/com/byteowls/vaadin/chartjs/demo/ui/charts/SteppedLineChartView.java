@@ -61,7 +61,7 @@ public class SteppedLineChartView extends AbstractChartView {
                         .and())
             .and()
             .done();
-        
+
         // add random data for demo
         List<String> labels = config.data().getLabels();
         for (Dataset<?, ?> ds : config.data().getDatasets()) {
@@ -79,10 +79,8 @@ public class SteppedLineChartView extends AbstractChartView {
         }
 
         ChartJs chart = new ChartJs(config);
-        chart.addClickListener((a,b) -> {
-            LineDataset dataset = (LineDataset) config.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
+        chart.addClickListener((a,b) ->
+            DemoUtils.notification(a, b, config.data().getDatasets().get(a)));
         chart.setJsLoggingEnabled(true);
         return chart;
     }

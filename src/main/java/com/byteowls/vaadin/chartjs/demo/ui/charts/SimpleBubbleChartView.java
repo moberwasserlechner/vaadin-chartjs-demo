@@ -19,7 +19,7 @@ public class SimpleBubbleChartView extends AbstractChartView {
 
     @Override
     public Component getChart() {
-        
+
         BubbleChartConfig config = new BubbleChartConfig();
         config.
             data()
@@ -33,7 +33,7 @@ public class SimpleBubbleChartView extends AbstractChartView {
                     .text("Chart.js Bubble Chart")
                     .and()
                .done();
-        
+
         for (Dataset<?, ?> ds : config.data().getDatasets()) {
             BubbleDataset lds = (BubbleDataset) ds;
             lds.backgroundColor(ColorUtils.randomColor(.7));
@@ -41,14 +41,13 @@ public class SimpleBubbleChartView extends AbstractChartView {
                 lds.addData(DemoUtils.randomScalingFactor(), DemoUtils.randomScalingFactor(), Math.abs(DemoUtils.randomScalingFactor()) / 5);
             }
         }
-        
+
         ChartJs chart = new ChartJs(config);
         chart.setJsLoggingEnabled(true);
-        chart.addClickListener((a,b) -> {
-            BubbleDataset dataset = (BubbleDataset) config.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
-        return chart; 
+        chart.addClickListener((a,b) ->
+            DemoUtils.notification(a, b, config.data().getDatasets().get(a)));
+
+        return chart;
     }
 
 }

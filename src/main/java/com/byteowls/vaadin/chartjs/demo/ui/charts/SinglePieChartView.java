@@ -28,7 +28,7 @@ public class SinglePieChartView extends AbstractChartView {
                 .labels("Red", "Green", "Yellow", "Grey", "Dark Grey")
                 .addDataset(new PieDataset().label("Dataset 1"))
                 .and();
-        
+
         config.
             options()
                 .responsive(true)
@@ -41,7 +41,7 @@ public class SinglePieChartView extends AbstractChartView {
                     .animateRotate(true)
                     .and()
                .done();
-        
+
         List<String> labels = config.data().getLabels();
         for (Dataset<?, ?> ds : config.data().getDatasets()) {
             PieDataset lds = (PieDataset) ds;
@@ -54,14 +54,13 @@ public class SinglePieChartView extends AbstractChartView {
             lds.backgroundColor(colors.toArray(new String[colors.size()]));
             lds.dataAsList(data);
         }
-        
+
         ChartJs chart = new ChartJs(config);
         chart.setJsLoggingEnabled(true);
-        chart.addClickListener((a,b) -> {
-            PieDataset dataset = (PieDataset) config.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
-        return chart; 
+        chart.addClickListener((a,b) ->
+            DemoUtils.notification(a, b, config.data().getDatasets().get(a)));
+
+        return chart;
     }
 
 }

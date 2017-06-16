@@ -69,7 +69,7 @@ public class SimpleLineChartView extends AbstractChartView {
                 .position(Position.RIGHT))
         .and()
         .done();
-        
+
         // add random data for demo
         List<String> labels = lineConfig.data().getLabels();
         for (Dataset<?, ?> ds : lineConfig.data().getDatasets()) {
@@ -84,11 +84,10 @@ public class SimpleLineChartView extends AbstractChartView {
         }
 
         ChartJs chart = new ChartJs(lineConfig);
-        chart.addClickListener((a,b) -> {
-            LineDataset dataset = (LineDataset) lineConfig.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
         chart.setJsLoggingEnabled(true);
+        chart.addClickListener((a,b) ->
+            DemoUtils.notification(a, b, lineConfig.data().getDatasets().get(a)));
+
         return chart;
     }
 

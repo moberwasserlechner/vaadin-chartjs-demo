@@ -75,11 +75,7 @@ public class CircularAngleLineRadarChartView extends AbstractChartView {
 
         ChartJs chart = new ChartJs(config);
         chart.setJsLoggingEnabled(true);
-
-        chart.addClickListener((a,b) -> {
-            RadarDataset dataset = (RadarDataset) config.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
+        chart.addClickListener((a,b) -> DemoUtils.notification(a, b, config.data().getDatasets().get(a)));
         return chart;
     }
 

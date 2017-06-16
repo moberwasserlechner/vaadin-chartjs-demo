@@ -28,7 +28,7 @@ public class PolarChartView extends AbstractChartView {
                 .labels("Red", "Green", "Yellow", "Grey", "Dark Grey")
                 .addDataset(new PolarAreaDataset().label("My dataset").backgroundColor("#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"))
                 .and();
-        
+
         config.
             options()
                 .responsive(true)
@@ -42,7 +42,7 @@ public class PolarChartView extends AbstractChartView {
                     .animateRotate(false)
                     .and()
                .done();
-        
+
         List<String> labels = config.data().getLabels();
         for (Dataset<?, ?> ds : config.data().getDatasets()) {
             PolarAreaDataset lds = (PolarAreaDataset) ds;
@@ -52,15 +52,12 @@ public class PolarChartView extends AbstractChartView {
             }
             lds.dataAsList(data);
         }
-        
+
         ChartJs chart = new ChartJs(config);
         chart.setJsLoggingEnabled(true);
-        
-        chart.addClickListener((a,b) -> {
-            PolarAreaDataset dataset = (PolarAreaDataset) config.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
-        return chart; 
+        chart.addClickListener((a,b) ->
+            DemoUtils.notification(a, b, config.data().getDatasets().get(a)));
+        return chart;
     }
 
 }

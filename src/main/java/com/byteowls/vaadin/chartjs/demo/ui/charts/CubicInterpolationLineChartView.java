@@ -71,7 +71,7 @@ public class CubicInterpolationLineChartView extends AbstractChartView {
                         .and())
             .and()
             .done();
-        
+
         // add random data for demo
         for (Dataset<?, ?> ds : lineConfig.data().getDatasets()) {
             LineDataset lds = (LineDataset) ds;
@@ -79,10 +79,7 @@ public class CubicInterpolationLineChartView extends AbstractChartView {
         }
 
         ChartJs chart = new ChartJs(lineConfig);
-        chart.addClickListener((a,b) -> {
-            LineDataset dataset = (LineDataset) lineConfig.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
+        chart.addClickListener((a,b) -> DemoUtils.notification(a, b, lineConfig.data().getDatasets().get(a)));
         chart.setJsLoggingEnabled(true);
         return chart;
     }

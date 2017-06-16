@@ -46,7 +46,7 @@ public class ScatterLineChartView extends AbstractChartView {
                     .add(Axis.Y, new LinearScale().display(true).position(Position.RIGHT).id("y-axis-2").ticks().reverse(true).and().gridLines().drawOnChartArea(false).and())
                     .and()
                .done();
-        
+
         for (Dataset<?, ?> ds : config.data().getDatasets()) {
             ScatterDataset lds = (ScatterDataset) ds;
             lds.borderColor(ColorUtils.randomColor(.4));
@@ -58,15 +58,13 @@ public class ScatterLineChartView extends AbstractChartView {
                 lds.addData(DemoUtils.randomScalingFactor(), DemoUtils.randomScalingFactor());
             }
         }
-        
+
         ChartJs chart = new ChartJs(config);
         chart.setJsLoggingEnabled(true);
-        
-        chart.addClickListener((a,b) -> {
-            ScatterDataset dataset = (ScatterDataset) config.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
-        return chart; 
+        chart.addClickListener((a,b) ->
+            DemoUtils.notification(a, b, config.data().getDatasets().get(a)));
+
+        return chart;
     }
 
 }

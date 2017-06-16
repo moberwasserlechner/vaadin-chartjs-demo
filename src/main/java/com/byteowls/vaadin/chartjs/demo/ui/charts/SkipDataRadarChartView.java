@@ -33,7 +33,7 @@ public class SkipDataRadarChartView extends AbstractChartView {
                 .addDataset(new RadarDataset().label("Skip last dataset").borderColor("rgb(0, 255, 255)")
                         .backgroundColor("rgba(0, 0, 255, 0.5)").pointBackgroundColor("rgba(151,187,205,1)").pointHoverBackgroundColor("#fff"))
                 .and();
-        
+
         config.
             options()
                 .title()
@@ -47,7 +47,7 @@ public class SkipDataRadarChartView extends AbstractChartView {
                      .and()
                 .scale(new RadialLinearScale().ticks().beginAtZero(true).and().reverse(false))
                .done();
-        
+
         List<String> labels = config.data().getLabels();
         int cnt = 0;
         for (Dataset<?, ?> ds : config.data().getDatasets()) {
@@ -63,15 +63,13 @@ public class SkipDataRadarChartView extends AbstractChartView {
             lds.dataAsList(data);
             cnt++;
         }
-        
+
         ChartJs chart = new ChartJs(config);
         chart.setJsLoggingEnabled(true);
-        
-        chart.addClickListener((a,b) -> {
-            RadarDataset dataset = (RadarDataset) config.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
-        return chart;    
+        chart.addClickListener((a,b) ->
+            DemoUtils.notification(a, b, config.data().getDatasets().get(a)));
+
+        return chart;
     }
 
 }

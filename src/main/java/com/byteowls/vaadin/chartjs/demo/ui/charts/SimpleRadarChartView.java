@@ -33,7 +33,7 @@ public class SimpleRadarChartView extends AbstractChartView {
                 .addDataset(new RadarDataset().label("My Second  dataset").backgroundColor("rgba(151,187,205,0.2)")
                         .pointBackgroundColor("rgba(151,187,205,1)").pointHoverBackgroundColor("#fff"))
                 .and();
-        
+
         config.
             options()
                 .legend()
@@ -45,7 +45,7 @@ public class SimpleRadarChartView extends AbstractChartView {
                     .and()
                 .scale(new RadialLinearScale().ticks().beginAtZero(true).and().reverse(false).gridLines().color("black", "red", "orange", "yellow", "green", "blue", "indigo", "violet").and())
                .done();
-        
+
         List<String> labels = config.data().getLabels();
         for (Dataset<?, ?> ds : config.data().getDatasets()) {
             RadarDataset lds = (RadarDataset) ds;
@@ -55,15 +55,13 @@ public class SimpleRadarChartView extends AbstractChartView {
             }
             lds.dataAsList(data);
         }
-        
+
         ChartJs chart = new ChartJs(config);
         chart.setJsLoggingEnabled(true);
-        
-        chart.addClickListener((a,b) -> {
-            RadarDataset dataset = (RadarDataset) config.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
-        return chart; 
+        chart.addClickListener((a,b) ->
+            DemoUtils.notification(a, b, config.data().getDatasets().get(a)));
+
+        return chart;
     }
 
 }

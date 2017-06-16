@@ -57,7 +57,8 @@ public class LineFillChartView extends AbstractChartView {
                     .and()
                .done();
 
-        SampleDataConfig sampleConfig = new SampleDataConfig().min(20).max(80).count(8).decimals(2).continuity(1);
+        SampleDataConfig sampleConfig =
+            new SampleDataConfig().min(20).max(80).count(8).decimals(2).continuity(1);
         for (int i = 0; i < config.data().getDatasets().size(); i++) {
             LineDataset lds = (LineDataset) config.data().getDatasetAtIndex(i);
             lds.label("D"+i);
@@ -72,10 +73,8 @@ public class LineFillChartView extends AbstractChartView {
         ChartJs chart = new ChartJs(config);
         chart.setJsLoggingEnabled(true);
 
-        chart.addClickListener((a,b) -> {
-            RadarDataset dataset = (RadarDataset) config.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
+        chart.addClickListener((a,b) ->
+            DemoUtils.notification(a, b, config.data().getDatasets().get(a)));
         return chart;
     }
 

@@ -29,7 +29,7 @@ public class MultiDonutChartView extends AbstractChartView {
                 .addDataset(new PieDataset().label("Dataset 2"))
                 .addDataset(new PieDataset().label("Dataset 3"))
                 .and();
-        
+
         config.
             options()
                 .responsive(true)
@@ -42,9 +42,9 @@ public class MultiDonutChartView extends AbstractChartView {
                     .animateRotate(true)
                     .and()
                .done();
-        
+
         String[] colors = new String[] {"#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"};
-        
+
         List<String> labels = config.data().getLabels();
         for (Dataset<?, ?> ds : config.data().getDatasets()) {
             PieDataset lds = (PieDataset) ds;
@@ -55,14 +55,11 @@ public class MultiDonutChartView extends AbstractChartView {
             }
             lds.dataAsList(data);
         }
-        
+
         ChartJs chart = new ChartJs(config);
         chart.setJsLoggingEnabled(true);
-        chart.addClickListener((a,b) -> {
-            PieDataset dataset = (PieDataset) config.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
-        return chart; 
+        chart.addClickListener((a,b) -> DemoUtils.notification(a, b, config.data().getDatasets().get(a)));
+        return chart;
     }
 
 }

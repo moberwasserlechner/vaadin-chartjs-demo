@@ -27,7 +27,7 @@ public class GaugeDonutChartView extends AbstractChartView {
                 .labels("Red", "Green", "Yellow", "Grey", "Dark Grey")
                 .addDataset(new PieDataset().label("Dataset 1"))
                 .and();
-        
+
         config.
             options()
                 .rotation(Math.PI)
@@ -42,9 +42,9 @@ public class GaugeDonutChartView extends AbstractChartView {
                     .animateRotate(true)
                     .and()
                .done();
-        
+
         String[] colors = new String[] {"#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"};
-        
+
         List<String> labels = config.data().getLabels();
         for (Dataset<?, ?> ds : config.data().getDatasets()) {
             PieDataset lds = (PieDataset) ds;
@@ -55,14 +55,11 @@ public class GaugeDonutChartView extends AbstractChartView {
             }
             lds.dataAsList(data);
         }
-        
+
         ChartJs chart = new ChartJs(config);
         chart.setJsLoggingEnabled(true);
-        chart.addClickListener((a,b) -> {
-            PieDataset dataset = (PieDataset) config.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
-        return chart; 
+        chart.addClickListener((a,b) -> DemoUtils.notification(a, b, config.data().getDatasets().get(a)));
+        return chart;
     }
 
 }

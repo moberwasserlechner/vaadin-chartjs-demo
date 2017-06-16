@@ -50,10 +50,7 @@ public class PieChartRefreshDataView extends AbstractChartView {
 
         ChartJs chart = new ChartJs(config);
         chart.setJsLoggingEnabled(true);
-        chart.addClickListener((a,b) -> {
-            PieDataset dataset = (PieDataset) config.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
+        chart.addClickListener((a,b) -> DemoUtils.notification(a, b, config.data().getDatasets().get(a)));
         refreshChartData(chart);
         chart.setSizeFull();
 

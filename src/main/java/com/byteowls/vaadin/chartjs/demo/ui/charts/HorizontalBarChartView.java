@@ -50,7 +50,7 @@ public class HorizontalBarChartView extends AbstractChartView {
                      .position(Position.LEFT)
                      .and()
                .done();
-        
+
         List<String> labels = barConfig.data().getLabels();
         for (Dataset<?, ?> ds : barConfig.data().getDatasets()) {
             BarDataset lds = (BarDataset) ds;
@@ -60,14 +60,11 @@ public class HorizontalBarChartView extends AbstractChartView {
             }
             lds.dataAsList(data);
         }
-        
+
         ChartJs chart = new ChartJs(barConfig);
         chart.setJsLoggingEnabled(true);
-        chart.addClickListener((a,b) -> {
-            BarDataset dataset = (BarDataset) barConfig.data().getDatasets().get(a);
-            DemoUtils.notification(a, b, dataset);
-        });
-        return chart; 
+        chart.addClickListener((a,b) -> DemoUtils.notification(a, b, barConfig.data().getDatasets().get(a)));
+        return chart;
     }
 
 }
