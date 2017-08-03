@@ -5,4 +5,5 @@
 build/
 .gradle/
 .idea/
+out/
 hs_err_pid*
