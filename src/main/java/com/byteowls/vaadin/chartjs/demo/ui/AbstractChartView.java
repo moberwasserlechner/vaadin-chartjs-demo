@@ -57,7 +57,7 @@ public abstract class AbstractChartView extends VerticalLayout implements ChartV
                         } else if (inCodeBlock) {
                             codelines.append(line);
                             codelines.append("\n");
-                        } 
+                        }
                         line = reader.readLine();
                     }
                     return codelines.toString();
@@ -78,12 +78,6 @@ public abstract class AbstractChartView extends VerticalLayout implements ChartV
     @Override
     public void enter(ViewChangeEvent event) {
 
-    }
-
-    @Override
-    public String getViewName() {
-        Class<?> realBeanClass = ClassUtils.getUserClass(getClass());
-        return realBeanClass.getSimpleName();
     }
 
 }
