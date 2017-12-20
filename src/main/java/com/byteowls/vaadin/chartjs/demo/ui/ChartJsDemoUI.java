@@ -103,7 +103,9 @@ public class ChartJsDemoUI extends UI {
                 + "| Version: <strong>" + env.getProperty("addon.version") + "</strong> "
                 + "| "+env.getProperty("addon.jslib.title")+": <strong>" + env.getProperty("addon.jslib.version") + "</strong> "
                 + "| Vaadin: <strong>" + env.getProperty("addon.vaadin.version") + "</strong> "
-                + "| <a href=\""+env.getProperty("addon.github")+"\">Check it out on Github</a>");
+                + "| <a href=\""+env.getProperty("addon.github")+"\">Check it out on Github</a>"
+                + "| <a href=\"https://www.paypal.me/moberwasserlechner/25\">Try donating. It feels good.</a>"
+        );
         info.setContentMode(ContentMode.HTML);
 
         CssLayout infoBar = new CssLayout(info);
