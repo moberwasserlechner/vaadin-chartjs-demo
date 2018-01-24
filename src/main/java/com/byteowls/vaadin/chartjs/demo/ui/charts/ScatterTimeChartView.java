@@ -2,7 +2,6 @@ package com.byteowls.vaadin.chartjs.demo.ui.charts;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
 
 import com.byteowls.vaadin.chartjs.ChartJs;
 import com.byteowls.vaadin.chartjs.config.ScatterChartConfig;
