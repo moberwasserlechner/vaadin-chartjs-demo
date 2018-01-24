@@ -50,6 +50,7 @@ public class ChartJsDemoUI extends UI {
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "PointSize", PointSizeLineChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Point Styles", LinePointSytesChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Scatter", ScatterLineChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Scatter Time", ScatterTimeChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "SkipPoints", SkipPointsLineChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Stepped", SteppedLineChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "CubicInterpolation", CubicInterpolationLineChartView.class));

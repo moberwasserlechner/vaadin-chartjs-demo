@@ -5,6 +5,9 @@ import com.byteowls.vaadin.chartjs.demo.ui.utils.SampleDataConfig;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +61,14 @@ public abstract class DemoUtils {
         return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
     }
 
+    public static double toMillis(LocalDateTime ldt) {
+    	return ldt
+    		.atZone(ZoneId.systemDefault())
+    		.toInstant()
+    		.toEpochMilli();
+    }
+    
+    
     public static void notification(int dataSetIdx, int dataIdx, Dataset<?, ?> dataset) {
         Notification.show("Dataset at Idx:" + dataSetIdx + "; Data at Idx: " + dataIdx + "; Value: " + dataset.getData().get(dataIdx), Type.TRAY_NOTIFICATION);
     }
