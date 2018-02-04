@@ -5,6 +5,9 @@ import com.byteowls.vaadin.chartjs.demo.ui.utils.SampleDataConfig;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +32,7 @@ public abstract class DemoUtils {
     public static final String RGB_PURPLE = "rgb(153, 102, 255)";
     public static final String RGB_GREY = "rgb(231,233,237)";
     public static final String RGB_BLACK = "rgb(0,0,0)";
-    public static final String GITHUB_REPO_URL = "https://github.com/moberwasserlechner/vaadin-chartjs-demo/tree/master/src/main/java/";
+    public static final String GITHUB_REPO_URL = "https://github.com/slatequarry/vaadin-chartjs-demo/tree/master/src/main/java/";
 
     public static List<int[]> COLORS;
     static {
@@ -58,6 +61,14 @@ public abstract class DemoUtils {
         return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
     }
 
+    public static double toMillis(LocalDateTime ldt) {
+    	return ldt
+    		.atZone(ZoneId.systemDefault())
+    		.toInstant()
+    		.toEpochMilli();
+    }
+    
+    
     public static void notification(int dataSetIdx, int dataIdx, Dataset<?, ?> dataset) {
         Notification.show("Dataset at Idx:" + dataSetIdx + "; Data at Idx: " + dataIdx + "; Value: " + dataset.getData().get(dataIdx), Type.TRAY_NOTIFICATION);
     }
