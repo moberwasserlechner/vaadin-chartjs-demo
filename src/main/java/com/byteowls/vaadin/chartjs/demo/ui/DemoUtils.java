@@ -6,6 +6,7 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -61,7 +62,9 @@ public abstract class DemoUtils {
     public static void notification(int dataSetIdx, int dataIdx, Dataset<?, ?> dataset) {
         Notification.show("Dataset at Idx:" + dataSetIdx + "; Data at Idx: " + dataIdx + "; Value: " + dataset.getData().get(dataIdx), Type.TRAY_NOTIFICATION);
     }
-
+    public static void legendNotification(int datasetIdx, boolean visible, int[] visibles) {
+        Notification.show("Triggering visible dataset at Idx:" + datasetIdx + "; visible: " + visible + "; Visible indexes: " + Arrays.toString(visibles), Type.TRAY_NOTIFICATION);
+    }
     public static String getPathToClass(Class<?> clazz) {
         return clazz.getCanonicalName().replaceAll("\\.", "/") + ".java";
     }
