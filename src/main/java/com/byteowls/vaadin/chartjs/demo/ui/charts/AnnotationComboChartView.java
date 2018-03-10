@@ -18,7 +18,7 @@ import java.util.List;
 
 @UIScope
 @SpringView
-public class AnnotationPluginChartView extends AbstractChartView {
+public class AnnotationComboChartView extends AbstractChartView {
 
     private static final long serialVersionUID = 1L;
 

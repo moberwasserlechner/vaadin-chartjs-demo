@@ -23,12 +23,19 @@ public abstract class DemoUtils {
     public static final int[] RGB_ARR_GREY = {201, 203, 20};
 
     public static final String RGB_RED = "rgb(255, 99, 132)";
+    public static final String RGBA_RED = "rgba(255, 99, 132, 0.5)";
     public static final String RGB_ORANGE = "rgb(255, 159, 64)";
+    public static final String RGBA_ORANGE = "rgba(255, 159, 64, 0.5)";
     public static final String RGB_YELLOW = "rgb(255, 205, 86)";
+    public static final String RGBA_YELLOW = "rgb(255, 205, 86)";
     public static final String RGB_GREEN = "rgb(75, 192, 192)";
+    public static final String RGBA_GREEN = "rgba(75, 192, 192, 0.5)";
     public static final String RGB_BLUE = "rgb(54, 162, 235)";
+    public static final String RGBA_BLUE = "rgba(54, 162, 235, 0.5)";
     public static final String RGB_PURPLE = "rgb(153, 102, 255)";
+    public static final String RGBA_PURPLE = "rgba(153, 102, 255, 0.5)";
     public static final String RGB_GREY = "rgb(231,233,237)";
+    public static final String RGBA_GREY = "rgba(231,233,237,0.5)";
     public static final String RGB_BLACK = "rgb(0,0,0)";
     public static final String GITHUB_REPO_URL = "https://github.com/moberwasserlechner/vaadin-chartjs-demo/tree/master/src/main/java/";
 

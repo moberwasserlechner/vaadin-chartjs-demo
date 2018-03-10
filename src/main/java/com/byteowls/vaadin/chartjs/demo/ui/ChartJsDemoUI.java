@@ -44,7 +44,8 @@ public class ChartJsDemoUI extends UI {
         MENU_ITEMS.add(new MenuItem(ChartType.BAR, "Stacked", StackedBarChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.BAR, "Grouped Stacks", GroupedStackedBarChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.BAR, "Zoom/Pan Plugin", ZoomPanBarChartView.class));
-        MENU_ITEMS.add(new MenuItem(ChartType.BAR, "Annotation Plugin", AnnotationPluginChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.BAR, "Annotation Bar", AnnotationBarChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Annotation Combo", AnnotationComboChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Simple", SimpleLineChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Stacked", StackedLineChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Combo", BarLineComboChartView.class));
