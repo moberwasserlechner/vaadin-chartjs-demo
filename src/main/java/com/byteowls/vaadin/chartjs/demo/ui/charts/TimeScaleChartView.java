@@ -1,8 +1,5 @@
 package com.byteowls.vaadin.chartjs.demo.ui.charts;
 
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
-
 import com.byteowls.vaadin.chartjs.ChartJs;
 import com.byteowls.vaadin.chartjs.config.LineChartConfig;
 import com.byteowls.vaadin.chartjs.data.Dataset;
@@ -20,9 +17,9 @@ import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.Component;
 
-//import lombok.extern.slf4j.Slf4j;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
-//@Slf4j
 @UIScope
 @SpringView
 public class TimeScaleChartView extends AbstractChartView {
@@ -31,9 +28,9 @@ public class TimeScaleChartView extends AbstractChartView {
 
     @Override
     public Component getChart() {
-    	
+
     	LocalDateTime t = LocalDateTime.now().truncatedTo(ChronoUnit.HOURS);
-    	
+
         LineChartConfig config = new LineChartConfig();
         config.data()
 	        .addDataset(new TimeLineDataset().label("My First dataset").fill(false))
@@ -62,7 +59,7 @@ public class TimeScaleChartView extends AbstractChartView {
 		  		.stepSize(2)
 		  		.unit(TimeScaleOptions.Unit.HOUR)
 		  		.displayFormats()
-		  			.hour("DD.MM HH:mm")
+		  			.hour("DD.MM HH:mm") // german date/time format
 		  			.and()
 		  	.and()
 	    )
