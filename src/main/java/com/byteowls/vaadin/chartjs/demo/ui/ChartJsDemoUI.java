@@ -61,7 +61,7 @@ public class ChartJsDemoUI extends UI {
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Elements.Line FillMode", ElementLineFillModeChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Advanced fill options", LineFillChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Zero line options", ZeroLineLineChartView.class));
-        MENU_ITEMS.add(new MenuItem(ChartType.LINE, "Time Scale", TimeScaleChartView.class));
+        MENU_ITEMS.add(new MenuItem(ChartType.TIME, "Time Scale", TimeScaleChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.PIE, "Pie", SinglePieChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.PIE, "Donut", MultiDonutChartView.class));
         MENU_ITEMS.add(new MenuItem(ChartType.PIE, "Angled pie", AngledPieChartView.class));
