@@ -72,6 +72,15 @@ public class MultiAxisBarChartView extends AbstractChartView {
         chart.setJsLoggingEnabled(true);
         chart.addClickListener((a,b) -> DemoUtils.notification(a, b, barConfig.data().getDatasets().get(a)));
         chart.addLegendClickListener((dataSetIndex,visible, visibleDatasets) -> DemoUtils.legendNotification(dataSetIndex, visible, visibleDatasets));
+        chart.setShowDownloadAction(true);
+        chart.setDownloadSetWhiteBackground(true);
+        chart.setDownloadActionFilename("vaadin-chartsjs-demo.png");
+        chart.addMenuEntry("Download: Configure Transparent Bg", () -> {
+            chart.setDownloadSetWhiteBackground(false);
+        });
+        chart.addMenuEntry("Download: Configure White Bg", () -> {
+            chart.setDownloadSetWhiteBackground(true);
+        });
         return chart;
     }
 
