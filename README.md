@@ -46,7 +46,7 @@ MIT. Please see [LICENSE](https://github.com/moberwasserlechner/vaadin-chartjs/b
 
 ## BYTEOWLS Software & Consulting
 
-This plugin is powered by BYTEOWLS Software & Consulting.
+This plugin is powered by [BYTEOWLS Software & Consulting](https://byteowls.com).
 
 ### Commercial support and consulting
 
