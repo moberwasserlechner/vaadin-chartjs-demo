@@ -1,12 +1,15 @@
-# Vaadin Chart.js demo [![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/vaadin-chartjs.svg)](https://bintray.com/moberwasserlechner/maven/vaadin-chartjs/_latestVersion) [![Travis](https://img.shields.io/travis/moberwasserlechner/vaadin-chartjs-demo/master.svg?maxAge=2592000)](https://travis-ci.org/moberwasserlechner/vaadin-chartjs-demo) [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Follow&style=flat-square)](https://twitter.com/michaelowl_web)
+# Vaadin Chart.js demo
+[![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/vaadin-chartjs.svg)](https://bintray.com/moberwasserlechner/maven/vaadin-chartjs/_latestVersion)
+[![Published on Vaadin Directory](https://img.shields.io/badge/Vaadin%20Directory-ChartJS-00b4f0.svg)](https://vaadin.com/directory/component/chartjs-add-on)
+[![Travis](https://img.shields.io/travis/moberwasserlechner/vaadin-chartjs-demo/master.svg?maxAge=2592000)](https://travis-ci.org/moberwasserlechner/vaadin-chartjs-demo)
+[![Stars on Vaadin Directory](https://img.shields.io/vaadin-directory/star/chartjs-add-on.svg)](https://vaadin.com/directory/component/chartjs-add-on)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/moberwasserlechner)
 
 This is the demo project for [vaadin-chartjs](https://github.com/moberwasserlechner/vaadin-chartjs) library.
 
 # Live Demo
 
 * http://vaadin-demos.qqjtxeeuih.eu-central-1.elasticbeanstalk.com:5600
-
-Please follow me on [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Twitter&style=flat-square)](https://twitter.com/michaelowl_web) to be notified about new releases.
 
 ## Contribute
 
@@ -40,3 +43,17 @@ Please use the sun coding convention. Please do not use tabs at all!
 ## License
 
 MIT. Please see [LICENSE](https://github.com/moberwasserlechner/vaadin-chartjs/blob/master/LICENSE).
+
+## BYTEOWLS Software & Consulting
+
+This plugin is powered by BYTEOWLS Software & Consulting.
+
+### Commercial support and consulting
+
+We create plugins for apps we build and share them **as it is** with the community.
+
+I you have a feature request, need support how to use the plugin or
+need a release breaking with our normal release cycle you have the possibility
+to sponsor the development by paying for this custom development or support.
+
+See the wiki page for how to request a quote. Donations are possible as well ;).
