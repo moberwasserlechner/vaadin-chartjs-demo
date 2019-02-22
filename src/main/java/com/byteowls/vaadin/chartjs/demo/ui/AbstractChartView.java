@@ -70,7 +70,7 @@ public abstract class AbstractChartView extends VerticalLayout implements ChartV
                 if (in != null) {
                     in.close();
                 }
-            } catch (Exception e) { }
+            } catch (Exception ignored) { }
         }
         return null;
     }

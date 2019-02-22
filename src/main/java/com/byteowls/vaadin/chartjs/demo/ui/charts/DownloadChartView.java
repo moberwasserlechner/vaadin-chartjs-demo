@@ -1,8 +1,5 @@
 package com.byteowls.vaadin.chartjs.demo.ui.charts;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.byteowls.vaadin.chartjs.ChartJs;
 import com.byteowls.vaadin.chartjs.config.BarChartConfig;
 import com.byteowls.vaadin.chartjs.data.BarDataset;
@@ -18,9 +15,12 @@ import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @UIScope
 @SpringView
-public class MultiAxisBarChartView extends AbstractChartView {
+public class DownloadChartView extends AbstractChartView {
 
     private static final long serialVersionUID = 934342877200303954L;
 
@@ -50,7 +50,7 @@ public class MultiAxisBarChartView extends AbstractChartView {
                     .and()
                 .title()
                     .display(true)
-                    .text("Chart.js Bar Chart - Multi Axis")
+                    .text("Chart.js Bar Chart - Download Chart")
                     .and()
                 .scales()
                     .add(Axis.Y, new LinearScale().display(true).position(Position.LEFT).id("y-axis-1"))
@@ -72,6 +72,15 @@ public class MultiAxisBarChartView extends AbstractChartView {
         chart.setJsLoggingEnabled(true);
         chart.addClickListener((a,b) -> DemoUtils.notification(a, b, barConfig.data().getDatasets().get(a)));
         chart.addLegendClickListener(DemoUtils::legendNotification);
+        chart.setShowDownloadAction(true);
+        chart.setDownloadSetWhiteBackground(true);
+        chart.setDownloadActionFilename("vaadin-chartsjs-demo.png");
+        chart.addMenuEntry("Download: Configure Transparent Bg", () -> {
+            chart.setDownloadSetWhiteBackground(false);
+        });
+        chart.addMenuEntry("Download: Configure White Bg", () -> {
+            chart.setDownloadSetWhiteBackground(true);
+        });
         return chart;
     }
 

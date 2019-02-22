@@ -1,8 +1,5 @@
 package com.byteowls.vaadin.chartjs.demo.ui.charts;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.byteowls.vaadin.chartjs.ChartJs;
 import com.byteowls.vaadin.chartjs.config.BarChartConfig;
 import com.byteowls.vaadin.chartjs.data.BarDataset;
@@ -18,11 +15,12 @@ import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @UIScope
 @SpringView
-public class MultiAxisBarChartView extends AbstractChartView {
-
-    private static final long serialVersionUID = 934342877200303954L;
+public class CallbackBarChartView extends AbstractChartView {
 
     @Override
     public Component getChart() {
@@ -50,11 +48,32 @@ public class MultiAxisBarChartView extends AbstractChartView {
                     .and()
                 .title()
                     .display(true)
-                    .text("Chart.js Bar Chart - Multi Axis")
+                    .text("Chart.js Bar Chart - Tooltip Callback")
                     .and()
                 .scales()
-                    .add(Axis.Y, new LinearScale().display(true).position(Position.LEFT).id("y-axis-1"))
+                .add(Axis.Y,
+                    new LinearScale()
+                        .display(true)
+                        .position(Position.LEFT)
+                        .id("y-axis-1")
+                        .ticks()
+                            .callback("value + '%'")
+                        .and())
                     .add(Axis.Y, new LinearScale().display(true).position(Position.RIGHT).id("y-axis-2").gridLines().drawOnChartArea(false).and())
+                    .and()
+                .tooltips()
+                    .callbacks()
+                        .label(
+                        "function(tooltipItem, data) {\n" +
+                        "   var label = data.datasets[tooltipItem.datasetIndex].label || '';\n" +
+                        "   if (label) {\n" +
+                        "       label += ': ';\n" +
+                        "   }\n" +
+                        "   label += tooltipItem.yLabel + '%';\n" +
+                        "   return label;\n" +
+                        "}"
+                        )
+                        .and()
                     .and()
                .done();
 
@@ -67,7 +86,6 @@ public class MultiAxisBarChartView extends AbstractChartView {
             }
             lds.dataAsList(data);
         }
-
         ChartJs chart = new ChartJs(barConfig);
         chart.setJsLoggingEnabled(true);
         chart.addClickListener((a,b) -> DemoUtils.notification(a, b, barConfig.data().getDatasets().get(a)));
