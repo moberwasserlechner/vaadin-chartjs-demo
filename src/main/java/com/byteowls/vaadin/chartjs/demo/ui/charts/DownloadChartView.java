@@ -14,6 +14,7 @@ import com.byteowls.vaadin.chartjs.utils.ColorUtils;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.Component;
+import com.vaadin.ui.Notification;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,15 +74,13 @@ public class DownloadChartView extends AbstractChartView {
         chart.addClickListener((a,b) -> DemoUtils.notification(a, b, barConfig.data().getDatasets().get(a)));
         chart.addLegendClickListener(DemoUtils::legendNotification);
         chart.setShowDownloadAction(true);
+        chart.setDownloadActionText("Archivo de descarga (Spanish)");
         chart.setDownloadSetWhiteBackground(true);
         chart.setDownloadActionFilename("vaadin-chartsjs-demo.png");
-        chart.addMenuEntry("Download: Configure Transparent Bg", () -> {
-            chart.setDownloadSetWhiteBackground(false);
-        });
-        chart.addMenuEntry("Download: Configure White Bg", () -> {
-            chart.setDownloadSetWhiteBackground(true);
-        });
+        chart.addMenuEntry("Custom Menu Entry 1: Show Notification",
+            () -> Notification.show("Notification triggered by from menu entry", Notification.Type.ERROR_MESSAGE));
         return chart;
     }
+
 
 }

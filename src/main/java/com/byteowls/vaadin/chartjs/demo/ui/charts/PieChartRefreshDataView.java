@@ -69,7 +69,7 @@ public class PieChartRefreshDataView extends AbstractChartView {
 
     protected void refreshChartData(ChartJs chart) {
     	generateRandomData(chart.getConfig());
-    	chart.refreshData();
+    	chart.update();
     }
 
     private void generateRandomData(ChartConfig chartConfig) {
